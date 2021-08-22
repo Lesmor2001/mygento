@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/mygento/static/css/main.a617e044.chunk.css",
+    "main.js": "/mygento/static/js/main.75c01f81.chunk.js",
+    "main.js.map": "/mygento/static/js/main.75c01f81.chunk.js.map",
+    "runtime-main.js": "/mygento/static/js/runtime-main.d5536932.js",
+    "runtime-main.js.map": "/mygento/static/js/runtime-main.d5536932.js.map",
+    "static/js/2.84624036.chunk.js": "/mygento/static/js/2.84624036.chunk.js",
+    "static/js/2.84624036.chunk.js.map": "/mygento/static/js/2.84624036.chunk.js.map",
+    "static/js/3.e1ce2954.chunk.js": "/mygento/static/js/3.e1ce2954.chunk.js",
+    "static/js/3.e1ce2954.chunk.js.map": "/mygento/static/js/3.e1ce2954.chunk.js.map",
+    "index.html": "/mygento/index.html",
+    "static/css/main.a617e044.chunk.css.map": "/mygento/static/css/main.a617e044.chunk.css.map",
+    "static/js/2.84624036.chunk.js.LICENSE.txt": "/mygento/static/js/2.84624036.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/mygento/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d5536932.js",
+    "static/js/2.84624036.chunk.js",
+    "static/css/main.a617e044.chunk.css",
+    "static/js/main.75c01f81.chunk.js"
+  ]
+}
