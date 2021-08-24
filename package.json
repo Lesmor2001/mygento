@@ -1,8 +1,8 @@
 {
-	"homepage": "http://Lesmor2001.github.io/mygento",
+	"homepage": "https://lesmor2001.github.io/mygento/",
 	"name": "mygento",
 	"version": "0.1.0",
-	"private": true,
+	"private": false,
 	"dependencies": {
 		"@syncfusion/ej2-react-buttons": "^19.2.55",
 		"@syncfusion/ej2-react-inputs": "^19.2.55",
