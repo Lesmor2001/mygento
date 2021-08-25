@@ -11,7 +11,7 @@ import './scss/fileUpload.scss';
 class Form extends React.Component {
 	constructor(props) {
 		super(props);
-
+		this.settings = { effect: 'Zoom', duration: 400, delay: 0 };
 		L10n.load({
 			"ru": {
 				"uploader": {
@@ -100,7 +100,7 @@ class Form extends React.Component {
 		}
 
 		if (typeof fields["name"] !== "undefined") {
-			if (!fields["name"].match(/^[a-zA-Z]+$/)) {
+			if (!fields["name"].match(/^[a-zа-яё\s]+$/iu)) {
 				formIsValid = false;
 				errors["name"] = "В имени могут быть только буквы";
 			}
@@ -113,7 +113,7 @@ class Form extends React.Component {
 		}
 
 		if (typeof fields["surname"] !== "undefined") {
-			if (!fields["surname"].match(/^[a-zA-Z]+$/)) {
+			if (!fields["surname"].match(/^[a-zа-яё\s]+$/iu)) {
 				formIsValid = false;
 				errors["surname"] = "В имени могут быть только буквы";
 			}
@@ -141,7 +141,7 @@ class Form extends React.Component {
 			let lastAtPos = fields["email"].lastIndexOf('@');
 			let lastDotPos = fields["email"].lastIndexOf('.');
 
-			if (!(lastAtPos < lastDotPos && lastAtPos > 0 && fields["email"].indexOf('@@') == -1 && lastDotPos > 2 && (fields["email"].length - lastDotPos) > 2)) {
+			if (!(lastAtPos < lastDotPos && lastAtPos > 0 && fields["email"].indexOf('@@') === -1 && lastDotPos > 2 && (fields["email"].length - lastDotPos) > 2)) {
 				formIsValid = false;
 				errors["email"] = "Пожалуйста укажите электронную почту";
 			}
@@ -173,8 +173,7 @@ class Form extends React.Component {
 
 
 	handleChange(field, e) {
-		console.log(e);
-		console.log(field);
+
 		let fields = this.state.fields;
 		if (field === "file") {
 			fields[field] = e;
@@ -196,7 +195,6 @@ class Form extends React.Component {
 	}
 
 	onSuccess(args) {
-		console.log(args);
 		this.handleChange('file', args.file.name)
 
 	}
@@ -258,7 +256,7 @@ class Form extends React.Component {
 
 				<div className="mygento__input_checkbox">
 					<CheckBoxComponent onChange={this.handleChange.bind(this, 'agreement')} name="agreement" id="agreement" checked={this.state.fields.agreement}></CheckBoxComponent>
-					<label htmlFor="agreement"> * Я согласен с <a href="#" onClick={() => this.handleClick(this.dialogInstance)}>политикой конфиденциальности</a></label>
+					<label htmlFor="agreement"> * Я согласен с <a href="#" role="button" onClick={() => this.handleClick(this.dialogInstance)}>политикой конфиденциальности</a></label>
 					<span className="error error_agreement">{this.state.errors["agreement"]}</span>
 				</div>
 
@@ -285,7 +283,6 @@ class Form extends React.Component {
 					content="Мы скоро свяжемся с Вами"
 					buttons={this.buttons}
 					overlayClick={() => this.dialogClose(this.dialogInstance1)} >
-					<h4></h4>
 				</DialogComponent>
 
 				<DialogComponent
@@ -293,7 +290,8 @@ class Form extends React.Component {
 					cssClass="mygento__modal mygento__modal_policy"
 					// width='760px'
 					animationSettings={this.settings}
-					target='body' showCloseIcon={true}
+					target='body'
+					showCloseIcon={true}
 					close={() => this.dialogClose(this.dialogInstance)}
 					isModal={true}
 					visible={false}
@@ -352,6 +350,7 @@ class Form extends React.Component {
 					buttons={this.buttons}
 					overlayClick={() => this.dialogClose(this.dialogInstance)} >
 				</DialogComponent>
+
 			</form>
 		)
 	}
